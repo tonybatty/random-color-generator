@@ -1,0 +1,7 @@
+{
+  "name": "random-color-generator",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
