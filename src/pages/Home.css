@@ -2,7 +2,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: blue;
+    /* color: blue; */
     height: 100%;
     background-color: #eeeeee;
+}
+
+.hex-code {
+    font-size: 13vw;
+    font-weight: bold;
 }
