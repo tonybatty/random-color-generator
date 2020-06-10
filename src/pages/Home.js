@@ -4,11 +4,9 @@ import './Home.css';
 
 const Home = () => {
   return (
-    <IonPage>
-      <IonContent>
-        Hello World
-      </IonContent>
-    </IonPage>
+    <div class="container">
+      <p>Hello World 3</p>
+    </div>
   );
 };
 
