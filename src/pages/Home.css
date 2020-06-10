@@ -1,5 +1,7 @@
 .container {
+    position: relative;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     /* color: blue; */
@@ -8,6 +10,34 @@
 }
 
 .hex-code {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     font-size: 13vw;
+    line-height: 1;
     font-weight: bold;
+}
+
+.hue-button-group{
+    font-size: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    /* border: 1px solid red; */
+    width: 290px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.hue-button {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    /* height: 15vw; */
+    border: 1px solid black;
+    border-radius: 50%;
+    display: inline-block;
 }
