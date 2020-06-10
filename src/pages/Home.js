@@ -9,31 +9,54 @@ export default class Home extends Component {
 
     this.state = {
       color: '#eeeeee',
-      hue: ['red', 'orange', 'yellow', 'green', 'blue', 'purple', 'pink', 'monochrome']
+      hueHexArray: ['red', 'orange', 'yellow', 'green', 'blue', 'purple', 'pink', 'white'],
+      hue: 'green',
+      luminosity: 'dark'
     }
 
-    this.handleClick = this.handleClick.bind(this)
+    this.clickBackground = this.clickBackground.bind(this)
+    this.clickHue = this.clickHue.bind(this)
   }
 
 
 
-  handleClick(e) {
+  clickBackground(e) {
+    e.preventDefault()
     this.setState({
-      color: randomColor()
+      color: randomColor({
+        luminosity: this.state.luminosity ? this.state.luminosity : null,
+        hue: this.state.hue ? this.state.hue : null
+      })
     })
 
     console.log(this.state.color)
   }
 
+  clickHue(e, hue) {
+    e.stopPropagation()
+    console.log("click hue")
+    if (this.state.hue !== hue) {
+      this.setState({
+        hue,
+        color: randomColor({ hue })
+      })
+    } else {
+      this.setState({ 
+        hue: '',
+        color: randomColor()
+      })
+    }
+  }
+
   render() {
     return (
-      <div className="container" style={{ backgroundColor: this.state.color }} onClick={this.handleClick}>
-        
+      <div className="container" style={{ backgroundColor: this.state.color }} onClick={(e) => this.clickBackground(e)}>
+
         <div className="hex-code">{this.state.color}</div>
 
         <div className="hue-button-group">
-          {this.state.hue.map((item, index) => (
-            <div className="hue-button" style={{ backgroundColor: item }}></div>
+          {this.state.hueHexArray.map((hue, index) => (
+            <div key={index} className="hue-button" style={{ backgroundColor: hue }} onClick={(e) => this.clickHue(e, hue)}></div>
           ))}
         </div>
       </div>
