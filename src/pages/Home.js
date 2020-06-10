@@ -17,7 +17,7 @@ export default class Home extends Component {
         "blue",
         "purple",
         "pink",
-        "white",
+        "monochrome",
       ],
       hue: "green",
       luminosity: "dark",
@@ -68,7 +68,11 @@ export default class Home extends Component {
           {this.state.hueHexArray.map((hue, index) => (
             <div
               key={index}
-              className="hue-button"
+              className={
+                this.state.hue === hue
+                  ? "hue-button hue-button--selected"
+                  : "hue-button"
+              }
               style={{ backgroundColor: hue }}
               onClick={(e) => this.clickHue(e, hue)}
             ></div>
