@@ -45,12 +45,10 @@ export default class Home extends Component {
     if (this.state.hue !== hue) {
       this.setState({
         hue,
-        color: randomColor({ hue }),
       })
     } else {
       this.setState({
         hue: "",
-        color: randomColor(),
       })
     }
   }
@@ -73,7 +71,9 @@ export default class Home extends Component {
                   ? "hue-button hue-button--selected"
                   : "hue-button"
               }
-              style={{ backgroundColor: hue }}
+              style={{
+                backgroundColor: hue,
+              }}
               onClick={(e) => this.clickHue(e, hue)}
             ></div>
           ))}
