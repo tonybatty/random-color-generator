@@ -35,8 +35,6 @@ export default class Home extends Component {
         hue: this.state.hue ? this.state.hue : null,
       }),
     })
-
-    console.log(this.state.color)
   }
 
   clickHue(e, hue) {
