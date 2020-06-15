@@ -8,7 +8,7 @@ export default class Home extends Component {
     super(props)
 
     this.state = {
-      color: "#eeeeee",
+      color: randomColor(),
       hueHexArray: [
         "red",
         "orange",
@@ -19,8 +19,8 @@ export default class Home extends Component {
         "pink",
         "monochrome",
       ],
-      hue: "green",
-      luminosity: "dark",
+      hue: "",
+      luminosity: "",
     }
 
     this.clickBackground = this.clickBackground.bind(this)
