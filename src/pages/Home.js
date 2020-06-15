@@ -43,7 +43,7 @@ export default class Home extends Component {
           hex: "#727272",
         },
       ],
-      selectedHue: "",
+      selectedColor: "",
       selectedLuminosity: "",
     }
 
@@ -59,20 +59,20 @@ export default class Home extends Component {
         luminosity: this.state.selectedLuminosity
           ? this.state.selectedLuminosity
           : null,
-        hue: this.state.selectedHue ? this.state.selectedHue : null,
+        hue: this.state.selectedColor ? this.state.selectedColor : null,
       }),
     })
   }
 
   clickHue(e, hue) {
     e.stopPropagation()
-    if (this.state.selectedHue !== hue) {
+    if (this.state.selectedColor !== hue) {
       this.setState({
-        hue,
+        selectedColor: hue,
       })
     } else {
       this.setState({
-        hue: "",
+        selectedColor: "",
       })
     }
   }
@@ -110,7 +110,7 @@ export default class Home extends Component {
             <div
               key={index}
               className={
-                this.state.hue === hue.color
+                this.state.selectedColor === hue.color
                   ? "hue-button hue-button--selected"
                   : "hue-button"
               }
