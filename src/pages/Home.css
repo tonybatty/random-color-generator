@@ -20,6 +20,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+@media only screen and (min-width: 992px) {
+  .hex-code {
+    font-size: 96px;
+  }
+}
+
 .hue-button-group {
   font-size: 0;
   position: absolute;
