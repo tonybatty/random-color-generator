@@ -8,19 +8,43 @@ export default class Home extends Component {
     super(props)
 
     this.state = {
-      color: randomColor(),
-      hueHexArray: [
-        "red",
-        "orange",
-        "yellow",
-        "green",
-        "blue",
-        "purple",
-        "pink",
-        "monochrome",
+      randomColorHex: randomColor(),
+      hueArray: [
+        {
+          color: "red",
+          hex: "#cc362e",
+        },
+        {
+          color: "orange",
+          hex: "#e86519",
+        },
+        {
+          color: "yellow",
+          hex: "#f7df09",
+        },
+        {
+          color: "green",
+          hex: "#0c962c",
+        },
+        {
+          color: "blue",
+          hex: "#062e66",
+        },
+        {
+          color: "purple",
+          hex: "#530282",
+        },
+        {
+          color: "pink",
+          hex: "#e20ec7",
+        },
+        {
+          color: "monochrome",
+          hex: "#727272",
+        },
       ],
-      hue: "",
-      luminosity: "",
+      selectedHue: "",
+      selectedLuminosity: "",
     }
 
     this.clickBackground = this.clickBackground.bind(this)
@@ -31,8 +55,10 @@ export default class Home extends Component {
     e.preventDefault()
     this.setState({
       color: randomColor({
-        luminosity: this.state.luminosity ? this.state.luminosity : null,
-        hue: this.state.hue ? this.state.hue : null,
+        luminosity: this.state.selectedLuminosity
+          ? this.state.selectedLuminosity
+          : null,
+        hue: this.state.selectedHue ? this.state.selectedHue : null,
       }),
     })
   }
@@ -40,7 +66,7 @@ export default class Home extends Component {
   clickHue(e, hue) {
     e.stopPropagation()
     console.log("click hue")
-    if (this.state.hue !== hue) {
+    if (this.state.selectedHue !== hue) {
       this.setState({
         hue,
       })
@@ -55,24 +81,24 @@ export default class Home extends Component {
     return (
       <div
         className="container"
-        style={{ backgroundColor: this.state.color }}
+        style={{ backgroundColor: this.state.randomColorHex }}
         onClick={(e) => this.clickBackground(e)}
       >
-        <div className="hex-code">{this.state.color}</div>
+        <div className="hex-code">{this.state.randomColorHex}</div>
 
         <div className="hue-button-group">
-          {this.state.hueHexArray.map((hue, index) => (
+          {this.state.hueArray.map((hue, index) => (
             <div
               key={index}
               className={
-                this.state.hue === hue
+                this.state.hue === hue.color
                   ? "hue-button hue-button--selected"
                   : "hue-button"
               }
               style={{
-                backgroundColor: hue,
+                backgroundColor: hue.hex,
               }}
-              onClick={(e) => this.clickHue(e, hue)}
+              onClick={(e) => this.clickHue(e, hue.color)}
             ></div>
           ))}
         </div>
