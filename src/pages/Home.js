@@ -49,12 +49,13 @@ export default class Home extends Component {
 
     this.clickBackground = this.clickBackground.bind(this)
     this.clickHue = this.clickHue.bind(this)
+    this.getTextColor = this.getTextColor.bind(this)
   }
 
   clickBackground(e) {
     e.preventDefault()
     this.setState({
-      color: randomColor({
+      randomColorHex: randomColor({
         luminosity: this.state.selectedLuminosity
           ? this.state.selectedLuminosity
           : null,
@@ -77,6 +78,14 @@ export default class Home extends Component {
     }
   }
 
+  getTextColor(bgColor, lightColor, darkColor) {
+    var color = bgColor.charAt(0) === "#" ? bgColor.substring(1, 7) : bgColor
+    var r = parseInt(color.substring(0, 2), 16) // hexToR
+    var g = parseInt(color.substring(2, 4), 16) // hexToG
+    var b = parseInt(color.substring(4, 6), 16) // hexToB
+    return r * 0.299 + g * 0.587 + b * 0.114 > 186 ? darkColor : lightColor
+  }
+
   render() {
     return (
       <div
@@ -84,7 +93,18 @@ export default class Home extends Component {
         style={{ backgroundColor: this.state.randomColorHex }}
         onClick={(e) => this.clickBackground(e)}
       >
-        <div className="hex-code">{this.state.randomColorHex}</div>
+        <div
+          className="hex-code"
+          style={{
+            color: this.getTextColor(
+              this.state.randomColorHex,
+              "#FFFFFF",
+              "#000000"
+            ),
+          }}
+        >
+          {this.state.randomColorHex}
+        </div>
 
         <div className="hue-button-group">
           {this.state.hueArray.map((hue, index) => (
