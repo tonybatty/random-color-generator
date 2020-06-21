@@ -16,7 +16,7 @@ A simple app to generate random colors and their hex codes. Built in Ionic for w
 
 #### Build for Android
 
-`ionic capacitor copy Android`
+`ionic capacitor copy android`
 
 #### Live-reload for Android
 
