@@ -1,0 +1,48 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+  <group android:scaleX="1.08"
+      android:scaleY="1.08"
+      android:translateX="-5.4"
+      android:translateY="-5.4">
+    <path
+        android:pathData="M55,47V31C61.627,31 67.627,33.686 71.971,38.029L60.657,49.343C59.209,47.895 57.209,47 55,47Z"
+        android:fillColor="#E65E58"
+        android:fillType="evenOdd"/>
+    <path
+        android:pathData="M49.343,49.343C50.791,47.895 52.791,47 55,47V31C48.858,31 42.716,33.343 38.029,38.029L49.343,49.343Z"
+        android:fillColor="#F487E9"
+        android:fillType="evenOdd"/>
+    <path
+        android:pathData="M47,55H31C31,48.373 33.686,42.373 38.029,38.029L49.343,49.343C47.895,50.791 47,52.791 47,55Z"
+        android:fillColor="#A64EFC"
+        android:fillType="evenOdd"/>
+    <path
+        android:pathData="M47,55H31C31,61.142 33.343,67.284 38.029,71.971L49.343,60.657C47.895,59.209 47,57.209 47,55Z"
+        android:fillColor="#5361E6"
+        android:fillType="evenOdd"/>
+    <path
+        android:pathData="M49.343,60.657L38.029,71.971C42.373,76.314 48.373,79 55,79V63C52.791,63 50.791,62.105 49.343,60.657Z"
+        android:fillColor="#3FBCF4"
+        android:fillType="evenOdd"/>
+    <path
+        android:pathData="M55,63V79C61.142,79 67.284,76.657 71.971,71.971L60.657,60.657C59.209,62.105 57.209,63 55,63Z"
+        android:fillColor="#0C962C"
+        android:fillType="evenOdd"/>
+    <path
+        android:pathData="M60.657,60.657C62.105,59.209 63,57.209 63,55H79C79,61.627 76.314,67.627 71.971,71.971L60.657,60.657Z"
+        android:fillColor="#EBD060"
+        android:fillType="evenOdd"/>
+    <path
+        android:pathData="M63,55H79C79,48.858 76.657,42.716 71.971,38.029L60.657,49.343C62.105,50.791 63,52.791 63,55Z"
+        android:fillColor="#FCA453"
+        android:fillType="evenOdd"/>
+    <path
+        android:pathData="M55,71C63.837,71 71,63.837 71,55C71,46.163 63.837,39 55,39C46.163,39 39,46.163 39,55C39,63.837 46.163,71 55,71ZM55,63C59.418,63 63,59.418 63,55C63,50.582 59.418,47 55,47C50.582,47 47,50.582 47,55C47,59.418 50.582,63 55,63Z"
+        android:fillColor="#000000"
+        android:fillAlpha="0.15"
+        android:fillType="evenOdd"/>
+  </group>
+</vector>
