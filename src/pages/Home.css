@@ -21,6 +21,12 @@
   user-select: none;
 }
 
+@media (orientation: landscape) {
+  .hex-code {
+    font-size: 8vw;
+  }
+}
+
 @media only screen and (min-width: 992px) {
   .hex-code {
     font-size: 96px;
