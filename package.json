@@ -1,6 +1,6 @@
 {
-  "name": "random-color-generator",
-  "version": "0.0.1",
+  "name": "Random Color",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@capacitor/android": "^2.1.2",

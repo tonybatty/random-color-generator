@@ -1,5 +1,5 @@
 {
-  "name": "random-color-generator",
+  "name": "Random Color",
   "integrations": {
     "capacitor": {}
   },

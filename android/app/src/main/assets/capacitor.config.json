@@ -1,6 +1,6 @@
 {
-  "appId": "io.ionic.starter",
-  "appName": "random-color-generator",
+  "appId": "com.doubletheory.randomcolor",
+  "appName": "Random Color",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "build",
