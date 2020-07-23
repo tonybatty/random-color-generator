@@ -1,4 +1,4 @@
-package io.ionic.starter;
+package com.doubletheory.randomcolor;
 
 import android.os.Bundle;
 
