@@ -1,5 +1,7 @@
 import React, { Component } from "react"
+import { Plugins } from "@capacitor/core"
 import "./Home.css"
+const { SplashScreen } = Plugins
 
 const randomColor = require("randomcolor")
 
@@ -50,6 +52,13 @@ export default class Home extends Component {
     this.clickBackground = this.clickBackground.bind(this)
     this.clickHue = this.clickHue.bind(this)
     this.getTextColor = this.getTextColor.bind(this)
+  }
+
+  componentDidMount() {
+    // SplashScreen.hide()
+    setTimeout(function () {
+      SplashScreen.hide()
+    }, 1000)
   }
 
   clickBackground(e) {
