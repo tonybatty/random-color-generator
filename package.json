@@ -50,7 +50,7 @@
   },
   "devDependencies": {
     "@capacitor/cli": "2.1.2",
-    "cordova-res": "^0.15.0"
+    "cordova-res": "^0.15.1"
   },
   "description": "An Ionic project"
 }
