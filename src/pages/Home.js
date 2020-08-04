@@ -113,20 +113,25 @@ export default class Home extends Component {
           {this.state.randomColorHex}
         </div>
 
-        <div className="hue-button-group">
+        <div className="hue-button-container">
           {this.state.hueArray.map((hue, index) => (
-            <div
-              key={index}
-              className={
-                this.state.selectedColor === hue.color
-                  ? "hue-button hue-button--selected"
-                  : "hue-button"
-              }
-              style={{
-                backgroundColor: hue.hex,
-              }}
-              onClick={(e) => this.clickHue(e, hue.color)}
-            ></div>
+            <>
+              <div className="hue-button-cell">
+                <div
+                  key={index}
+                  className={
+                    this.state.selectedColor === hue.color
+                      ? "hue-button hue-button--selected"
+                      : "hue-button"
+                  }
+                  style={{
+                    backgroundColor: hue.hex,
+                  }}
+                  onClick={(e) => this.clickHue(e, hue.color)}
+                ></div>
+              </div>
+              {index === 3 ? <div className="flex-break"></div> : null}
+            </>
           ))}
         </div>
       </div>
