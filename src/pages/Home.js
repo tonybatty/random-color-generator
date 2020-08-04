@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { Plugins } from "@capacitor/core"
-import "./Home.css"
+import "./Home.scss"
 const { SplashScreen } = Plugins
 
 const randomColor = require("randomcolor")
