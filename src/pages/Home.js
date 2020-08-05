@@ -53,7 +53,7 @@ export default class Home extends Component {
   componentDidMount() {
     setTimeout(function () {
       SplashScreen.hide()
-    }, 150)
+    }, 1000)
   }
 
   clickBackground(e) {
