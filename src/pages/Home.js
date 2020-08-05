@@ -22,7 +22,7 @@ export default class Home extends Component {
         },
         {
           color: "yellow",
-          hex: "#f7df09",
+          hex: "#dec910",
         },
         {
           color: "green",
