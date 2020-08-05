@@ -38,11 +38,7 @@ export default class Home extends Component {
         },
         {
           color: "pink",
-          hex: "#e20ec7",
-        },
-        {
-          color: "monochrome",
-          hex: "#727272",
+          hex: "#d631c1",
         },
       ],
       selectedColor: "",
@@ -115,23 +111,20 @@ export default class Home extends Component {
 
         <div className="hue-button-container">
           {this.state.hueArray.map((hue, index) => (
-            <>
-              <div className="hue-button-cell">
-                <div
-                  key={index}
-                  className={
-                    this.state.selectedColor === hue.color
-                      ? "hue-button hue-button--selected"
-                      : "hue-button"
-                  }
-                  style={{
-                    backgroundColor: hue.hex,
-                  }}
-                  onClick={(e) => this.clickHue(e, hue.color)}
-                ></div>
-              </div>
-              {index === 3 ? <div className="flex-break"></div> : null}
-            </>
+            <div className="hue-button-cell">
+              <div
+                key={index}
+                className={
+                  this.state.selectedColor === hue.color
+                    ? "hue-button hue-button--selected"
+                    : "hue-button"
+                }
+                style={{
+                  backgroundColor: hue.hex,
+                }}
+                onClick={(e) => this.clickHue(e, hue.color)}
+              ></div>
+            </div>
           ))}
         </div>
       </div>
