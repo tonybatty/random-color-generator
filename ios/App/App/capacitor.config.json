@@ -1,6 +1,6 @@
 {
   "appId": "com.doubletheory.randomcolor",
-  "appName": "Random Color",
+  "appName": "Random Color Generator",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "build",
