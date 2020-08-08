@@ -5,6 +5,8 @@ A simple app which generates random colors and displays their hex code, useful f
 Get it on [iOS app store](https://itunes.apple.com/app/id1525279408)  
 Get it on [Google Play](https://play.google.com/store/apps/details?id=com.doubletheory.randomcolor)
 
+![ScreenShot](/screenshots/randomColorGithub.png)
+
 ## Technologies used
 
 - React
