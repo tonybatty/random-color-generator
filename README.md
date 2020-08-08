@@ -2,8 +2,8 @@
 
 A simple app which generates random colors and displays their hex code, useful for designers and developers to find new colors for their UI.
 
-Get it on iOS app store: (https://itunes.apple.com/app/id1525279408)  
-Get it on Google Play: (https://play.google.com/store/apps/details?id=com.doubletheory.randomcolor)
+Get it on [iOS app store](https://itunes.apple.com/app/id1525279408)  
+Get it on [Google Play](https://play.google.com/store/apps/details?id=com.doubletheory.randomcolor)
 
 ## Technologies used
 
