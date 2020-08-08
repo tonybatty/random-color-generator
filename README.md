@@ -1,23 +1,31 @@
 # Random color generator
 
-A simple app to generate random colors and their hex codes. Built in Ionic for web, Android and iOS.
+A simple app which generates random colors and displays their hex code, useful for designers and developers to find new colors for their UI.
 
-#### Run locally in a Web Browser
+Get it on iOS app store: https://itunes.apple.com/app/id1525279408
+Get it on Google Play: https://play.google.com/store/apps/details?id=com.doubletheory.randomcolor
 
-`ionic serve`
+## Technologies used
 
-#### Build for iOS
+- React
+- Ionic
+- Capacitor
+- node-sass
+- webpack
 
-`ionic capacitor copy ios`
+## Installation
 
-#### Live-reload for ios
+- Fork and clone this repo.
+- Run `npm install` to install dependencies.
+- Run `ionic capacitor run` to build the project, copy the assets into the specified native platform and open the IDE
+- Run `ionic serve` to run locally in a web browser
 
-`ionic capacitor run ios -l --external`
+## Features
+- Click or tap to generate a random color
+- View the hex code of the color
+- The hex code shows as either white or black text color based on highest contrast
+- Click or tap the buttons to generate colors of that type
 
-#### Build for Android
+## Credit
 
-`ionic capacitor copy android`
-
-#### Live-reload for Android
-
-`ionic capacitor run android -l --host=YOUR_IP_ADDRESS`
+The awesome npm package [randomcolor](https://www.npmjs.com/package/randomcolor) made by [davidmerfield](https://www.npmjs.com/~davidmerfield)
