@@ -1,7 +1,7 @@
 import React, { Component } from "react"
-import { Plugins } from "@capacitor/core"
+import { Plugins, StatusBarStyle } from "@capacitor/core"
 import "./Home.scss"
-const { SplashScreen } = Plugins
+const { SplashScreen, StatusBar } = Plugins
 
 const randomColor = require("randomcolor")
 
@@ -10,7 +10,7 @@ export default class Home extends Component {
     super(props)
 
     this.state = {
-      randomColorHex: randomColor().toUpperCase(),
+      hexColor: "#FFFFFF",
       hueArray: [
         {
           color: "red",
@@ -48,9 +48,11 @@ export default class Home extends Component {
     this.clickBackground = this.clickBackground.bind(this)
     this.clickHue = this.clickHue.bind(this)
     this.getTextColor = this.getTextColor.bind(this)
+    this.generateRandomColor = this.generateRandomColor.bind(this)
   }
 
   componentDidMount() {
+    this.generateRandomColor()
     setTimeout(function () {
       SplashScreen.hide()
     }, 1000)
@@ -58,14 +60,7 @@ export default class Home extends Component {
 
   clickBackground(e) {
     e.preventDefault()
-    this.setState({
-      randomColorHex: randomColor({
-        luminosity: this.state.selectedLuminosity
-          ? this.state.selectedLuminosity
-          : null,
-        hue: this.state.selectedColor ? this.state.selectedColor : null,
-      }).toUpperCase(),
-    })
+    this.generateRandomColor()
   }
 
   clickHue(e, hue) {
@@ -81,32 +76,45 @@ export default class Home extends Component {
     }
   }
 
-  getTextColor(bgColor, lightColor, darkColor) {
+  getTextColor(bgColor) {
     var color = bgColor.charAt(0) === "#" ? bgColor.substring(1, 7) : bgColor
     var r = parseInt(color.substring(0, 2), 16)
     var g = parseInt(color.substring(2, 4), 16)
     var b = parseInt(color.substring(4, 6), 16)
-    return r * 0.299 + g * 0.587 + b * 0.114 > 186 ? darkColor : lightColor
+    console.log(r * 0.299 + g * 0.587 + b * 0.114)
+    return r * 0.299 + g * 0.587 + b * 0.114 > 120
+  }
+
+  generateRandomColor() {
+    let randomHexColor = randomColor({
+      luminosity: this.state.selectedLuminosity
+        ? this.state.selectedLuminosity
+        : null,
+      hue: this.state.selectedColor ? this.state.selectedColor : null,
+    }).toUpperCase()
+
+    this.setState({
+      hexColor: randomHexColor,
+    })
+    StatusBar.setStyle({ style: StatusBarStyle.Light })
   }
 
   render() {
     return (
       <div
         className="container"
-        style={{ backgroundColor: this.state.randomColorHex }}
+        style={{ backgroundColor: this.state.hexColor }}
         onClick={(e) => this.clickBackground(e)}
       >
         <div
           className="hex-code"
           style={{
-            color: this.getTextColor(
-              this.state.randomColorHex,
-              "#FFFFFF",
-              "#000000"
-            ),
+            color: this.getTextColor(this.state.hexColor)
+              ? "#000000"
+              : "#FFFFFF",
           }}
         >
-          {this.state.randomColorHex}
+          {this.state.hexColor}
         </div>
 
         <div className="hue-button-container">
