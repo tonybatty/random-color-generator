@@ -11,6 +11,7 @@ export default class Home extends Component {
 
     this.state = {
       hexColor: "#FFFFFF",
+      textColor: "#000000",
       hueArray: [
         {
           color: "red",
@@ -47,7 +48,7 @@ export default class Home extends Component {
 
     this.clickBackground = this.clickBackground.bind(this)
     this.clickHue = this.clickHue.bind(this)
-    this.getTextColor = this.getTextColor.bind(this)
+    this.checkIfLightText = this.checkIfLightText.bind(this)
     this.generateRandomColor = this.generateRandomColor.bind(this)
   }
 
@@ -76,7 +77,7 @@ export default class Home extends Component {
     }
   }
 
-  getTextColor(bgColor) {
+  checkIfLightText(bgColor) {
     var color = bgColor.charAt(0) === "#" ? bgColor.substring(1, 7) : bgColor
     var r = parseInt(color.substring(0, 2), 16)
     var g = parseInt(color.substring(2, 4), 16)
@@ -86,15 +87,18 @@ export default class Home extends Component {
   }
 
   generateRandomColor() {
-    let randomHexColor = randomColor({
+    let hexColor = randomColor({
       luminosity: this.state.selectedLuminosity
         ? this.state.selectedLuminosity
         : null,
       hue: this.state.selectedColor ? this.state.selectedColor : null,
     }).toUpperCase()
 
+    let textColor = this.checkIfLightText(hexColor) ? "#000000" : "#FFFFFF"
+
     this.setState({
-      hexColor: randomHexColor,
+      hexColor,
+      textColor,
     })
     StatusBar.setStyle({ style: StatusBarStyle.Light })
   }
@@ -106,14 +110,7 @@ export default class Home extends Component {
         style={{ backgroundColor: this.state.hexColor }}
         onClick={(e) => this.clickBackground(e)}
       >
-        <div
-          className="hex-code"
-          style={{
-            color: this.getTextColor(this.state.hexColor)
-              ? "#000000"
-              : "#FFFFFF",
-          }}
-        >
+        <div className="hex-code" style={{ color: this.state.textColor }}>
           {this.state.hexColor}
         </div>
 
