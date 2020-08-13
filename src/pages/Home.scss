@@ -9,6 +9,7 @@
 }
 
 .hex-code {
+  font-family: -apple-system, "Helvetica Neue", sans-serif;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -32,6 +33,8 @@
 .hue-button-container {
   position: absolute;
   bottom: 0;
+  bottom: constant(safe-area-inset-bottom, 0px);
+  bottom: env(safe-area-inset-bottom, 0px);
   left: 0;
   right: 0;
   width: 100%;
@@ -44,8 +47,8 @@
 
   @media only screen and (min-width: 700px) {
     padding: 0 12px 20px;
-    padding: 0 12px calc(3% - constant(safe-area-inset-bottom, 0px)) 1.8%;
-    padding: 0 12px calc(3% - env(safe-area-inset-bottom, 0px)) 1.8%;
+    padding: 0 12px calc(20px - constant(safe-area-inset-bottom, 0px)) 1.8%;
+    padding: 0 12px calc(20px - env(safe-area-inset-bottom, 0px)) 1.8%;
   }
 
   @media (orientation: landscape) {
