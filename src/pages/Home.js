@@ -48,7 +48,7 @@ export default class Home extends Component {
 
     this.clickBackground = this.clickBackground.bind(this)
     this.clickHue = this.clickHue.bind(this)
-    this.checkIfLightText = this.checkIfLightText.bind(this)
+    this.checkIfDarkText = this.checkIfDarkText.bind(this)
     this.generateRandomColor = this.generateRandomColor.bind(this)
   }
 
@@ -77,7 +77,7 @@ export default class Home extends Component {
     }
   }
 
-  checkIfLightText(bgColor) {
+  checkIfDarkText(bgColor) {
     var color = bgColor.charAt(0) === "#" ? bgColor.substring(1, 7) : bgColor
     var r = parseInt(color.substring(0, 2), 16)
     var g = parseInt(color.substring(2, 4), 16)
@@ -87,20 +87,28 @@ export default class Home extends Component {
   }
 
   generateRandomColor() {
-    let hexColor = randomColor({
+    let hexColor = ""
+    let textColor = ""
+
+    hexColor = randomColor({
       luminosity: this.state.selectedLuminosity
         ? this.state.selectedLuminosity
         : null,
       hue: this.state.selectedColor ? this.state.selectedColor : null,
     }).toUpperCase()
 
-    let textColor = this.checkIfLightText(hexColor) ? "#000000" : "#FFFFFF"
+    if (this.checkIfDarkText(hexColor)) {
+      textColor = "#000000"
+      StatusBar.setStyle({ style: StatusBarStyle.Light })
+    } else {
+      textColor = "#FFFFFF"
+      StatusBar.setStyle({ style: StatusBarStyle.Dark })
+    }
 
     this.setState({
       hexColor,
       textColor,
     })
-    StatusBar.setStyle({ style: StatusBarStyle.Light })
   }
 
   render() {
