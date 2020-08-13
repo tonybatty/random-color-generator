@@ -10,7 +10,7 @@ export default class Home extends Component {
     super(props)
 
     this.state = {
-      randomColorHex: randomColor(),
+      randomColorHex: randomColor().toUpperCase(),
       hueArray: [
         {
           color: "red",
@@ -64,7 +64,7 @@ export default class Home extends Component {
           ? this.state.selectedLuminosity
           : null,
         hue: this.state.selectedColor ? this.state.selectedColor : null,
-      }),
+      }).toUpperCase(),
     })
   }
 
