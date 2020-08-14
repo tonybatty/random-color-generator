@@ -50,18 +50,24 @@ export default class Home extends Component {
     this.clickHue = this.clickHue.bind(this)
     this.checkIfDarkText = this.checkIfDarkText.bind(this)
     this.generateRandomColor = this.generateRandomColor.bind(this)
+    this.hideSplashscreen = this.hideSplashscreen.bind(this)
   }
 
   componentDidMount() {
-    this.generateRandomColor()
-    setTimeout(function () {
-      SplashScreen.hide()
+    this.generateRandomColor(false)
+    setTimeout(() => {
+      if (this.state.textColor === "#000000") {
+        StatusBar.setStyle({ style: StatusBarStyle.Light })
+      } else {
+        StatusBar.setStyle({ style: StatusBarStyle.Dark })
+      }
+      this.hideSplashscreen()
     }, 1000)
   }
 
   clickBackground(e) {
     e.preventDefault()
-    this.generateRandomColor()
+    this.generateRandomColor(true)
   }
 
   clickHue(e, hue) {
@@ -86,7 +92,7 @@ export default class Home extends Component {
     return r * 0.299 + g * 0.587 + b * 0.114 > 120
   }
 
-  generateRandomColor() {
+  generateRandomColor(changeStatusBarColor) {
     let hexColor = ""
     let textColor = ""
 
@@ -99,10 +105,14 @@ export default class Home extends Component {
 
     if (this.checkIfDarkText(hexColor)) {
       textColor = "#000000"
-      StatusBar.setStyle({ style: StatusBarStyle.Light })
+      if (changeStatusBarColor) {
+        StatusBar.setStyle({ style: StatusBarStyle.Light })
+      }
     } else {
       textColor = "#FFFFFF"
-      StatusBar.setStyle({ style: StatusBarStyle.Dark })
+      if (changeStatusBarColor) {
+        StatusBar.setStyle({ style: StatusBarStyle.Dark })
+      }
     }
 
     this.setState({
