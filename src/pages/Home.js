@@ -50,7 +50,6 @@ export default class Home extends Component {
     this.clickHue = this.clickHue.bind(this)
     this.checkIfDarkText = this.checkIfDarkText.bind(this)
     this.generateRandomColor = this.generateRandomColor.bind(this)
-    this.hideSplashscreen = this.hideSplashscreen.bind(this)
   }
 
   componentDidMount() {
@@ -61,8 +60,8 @@ export default class Home extends Component {
       } else {
         StatusBar.setStyle({ style: StatusBarStyle.Dark })
       }
-      this.hideSplashscreen()
-    }, 1000)
+      SplashScreen.hide()
+    }, 750)
   }
 
   clickBackground(e) {
