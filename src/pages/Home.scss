@@ -46,14 +46,9 @@
   padding: 0 1.8% calc(3% - env(safe-area-inset-bottom, 0px)) 1.8%;
 
   @media only screen and (min-width: 700px) {
-    padding: 0 12px 20px;
-    padding: 0 12px calc(20px - constant(safe-area-inset-bottom, 0px)) 1.8%;
-    padding: 0 12px calc(20px - env(safe-area-inset-bottom, 0px)) 1.8%;
-  }
-
-  @media (orientation: landscape) {
-    width: 60%;
-    margin: 0 auto;
+    padding: 0 12px 24px;
+    padding: 0 12px calc(24px - constant(safe-area-inset-bottom, 0px)) 12px;
+    padding: 0 12px calc(24px - env(safe-area-inset-bottom, 0px)) 12px;
   }
 }
 
